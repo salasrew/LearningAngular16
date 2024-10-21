@@ -1,0 +1,76 @@
+/* 整體背景設定 */
+body, html {
+    background-color: #1e1e1e; /* 深色背景，統一頁面風格 */
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: Arial, sans-serif;
+  }
+  
+.hiragana-container 
+{
+display: flex;
+flex-direction: column;
+align-items: center;
+margin-top: 20px;
+background-color: #2b2b2b; /* 表格背景色稍淺，與主背景有區別 */
+padding: 20px;
+border-radius: 10px; /* 增加圓角使表格區塊更有層次感 */
+box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); /* 增加陰影效果 */
+}
+
+/* 標題 */
+h1 
+{
+color: #ffcc00; /* 讓標題顯眼 */
+margin-bottom: 20px;
+}
+
+/* 表格設定 */
+table 
+{
+border-collapse: collapse;
+font-size: 1.2rem;
+width: 100%; /* 表格寬度佔滿容器 */
+background-color: #333333; /* 表格深色背景 */
+margin-bottom: 40px;
+}
+
+td 
+{
+border: 1px solid #666666; /* 灰色邊框 */
+padding: 10px;
+text-align: center;
+color: #ffffff; /* 白色字體 */
+}
+
+/* 每列隔色，增強可讀性 */
+td:nth-child(odd) 
+{
+background-color: #444444;
+}
+
+td:nth-child(even) {
+background-color: #555555;
+}
+
+td:hover
+{
+    background-color: #f0f0f0;
+    cursor: pointer;
+}
+
+
+/* 增加表格邊緣圓角 */
+table {
+border-radius: 10px;
+overflow: hidden; /* 防止表格圓角被內容擠壓 */
+}
+
+/* 調整最後一行的寬度 */
+table tr:last-child td:first-child {
+width: 50px;
+}
