@@ -1,32 +1,21 @@
 /* 整體背景設定 */
-body, html {
-    background-color: #1e1e1e; /* 深色背景，統一頁面風格 */
-    margin: 0;
-    padding: 0;
-    height: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-family: Arial, sans-serif;
-  }
-  
 .hiragana-container 
 {
-display: flex;
-flex-direction: column;
-align-items: center;
-margin-top: 20px;
-background-color: #2b2b2b; /* 表格背景色稍淺，與主背景有區別 */
-padding: 20px;
-border-radius: 10px; /* 增加圓角使表格區塊更有層次感 */
-box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); /* 增加陰影效果 */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 10px;
+    background-color: #2b2b2b; /* 表格背景色稍淺，與主背景有區別 */
+    padding: 20px;
+    border-radius: 10px; /* 增加圓角使表格區塊更有層次感 */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); /* 增加陰影效果 */
 }
 
 /* 標題 */
 h1 
 {
-color: #ffcc00; /* 讓標題顯眼 */
-margin-bottom: 20px;
+    color: #ffcc00; /* 讓標題顯眼 */
+    margin-bottom: 20px;
 }
 
 /* 表格設定 */

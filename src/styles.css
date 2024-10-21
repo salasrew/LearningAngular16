@@ -1,1 +1,6 @@
 /* You can add global styles to this file, and also import other style files */
+body {
+  background-color: #f5f5dc; /* 設置背景顏色為象牙黃 */
+  margin: 0; /* 去掉頁面默認邊距 */
+  font-family: Arial, sans-serif; /* 設置字體樣式 */
+}

@@ -1,13 +1,23 @@
-<h1>Quiz</h1>
-<button (click)="setMode('recognition')">辨識模式</button>
-<button (click)="setMode('typing')">打字模式</button>
+<div class="quiz-container">
+  <h1>Quiz</h1>
+  <button (click)="setMode('recognition')">辨識模式</button>
+  <button (click)="setMode('typing')">打字模式</button>
 
-<div *ngIf="mode === 'recognition'">
-  <h2>辨識模式</h2>
-  <!-- 這裡實作假名辨識功能 -->
-</div>
+  <div *ngIf="mode === 'recognition'">
+    <h2>辨識模式</h2>
+    <h3>請輸入羅馬拼音:</h3>
+    <h1>{{ currentCharacter }}</h1>
+    <input [(ngModel)]="userInput" placeholder="輸入羅馬拼音" />
+    <button (click)="submitAnswer()">提交答案</button>
+    <p>分數: {{ score }}</p>
 
-<div *ngIf="mode === 'typing'">
-  <h2>打字模式</h2>
-  <!-- 這裡實作假名打字測試功能 -->
+    <p [ngClass]="{'correct': isCorrect, 'incorrect': !isCorrect && resultMessage !== ''}">
+      {{ resultMessage }}
+    </p>
+  </div>
+
+  <div *ngIf="mode === 'typing'">
+    <h2>打字模式</h2>
+    <!-- 這裡實作假名打字測試功能 -->
+  </div>
 </div>

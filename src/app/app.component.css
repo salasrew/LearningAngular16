@@ -1,18 +1,16 @@
-/* 設置背景顏色為象牙黃 */
-
-  
 nav {
-background-color: #f8f9fa;
-padding: 10px;
-display: flex;
-justify-content: flex-end; /* 將內容靠右對齊 */
+    background-color: #333; /* 導航欄背景色，這裡設置為深色 */
+    padding: 20px;
+    display: flex;
+    justify-content: flex-end; /* 將內容靠右對齊 */
+    border-radius: 10px; /* 設置圓弧邊緣，調整數值以改變圓度 */
 }
 
 ul {
-list-style-type: none;
-padding: 0;
-margin: 0;
-display: flex; /* 使用 flexbox 讓項目水平排列 */
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    display: flex; /* 使用 flexbox 讓項目水平排列 */
 }
 
 li {
@@ -26,4 +24,27 @@ color: #007bff;
 
 a:hover {
 color: #0056b3;
+}
+
+/* 設置導航鏈接的顏色 */
+nav ul 
+{
+    list-style-type: none; /* 去掉列表標記 */
+    margin: 0;
+    padding: 0;
+    display: flex; /* 使用flexbox來排列導航項目 */
+    justify-content: flex-end; /* 將項目靠右對齊 */
+}
+
+nav li {
+    margin-left: 20px; /* 增加項目之間的間距 */
+}
+
+nav a {
+    color: #f0f0f0; /* 導航鏈接的顏色 */
+    text-decoration: none; /* 去掉下劃線 */
+}
+
+nav a:hover {
+    color: #ffd700; /* 當滑鼠懸停時的顏色 */
 }

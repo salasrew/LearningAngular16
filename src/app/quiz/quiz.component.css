@@ -1,0 +1,22 @@
+/* 整個 quiz 容器的樣式 */
+.quiz-container {
+    padding: 20px; /* 內邊距 */
+    margin: 20px; /* 外邊距 */
+    background-color: #2b2b2b; /* 背景色，根據需要可以修改 */
+    border-radius: 10px; /* 圓角 */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); /* 陰影 */
+    color: #ffffff; /* 白色字體 */
+
+  }
+  
+  /* 正確與錯誤訊息的樣式 */
+  .correct {
+    color: green; /* 正確顯示為綠色 */
+    font-weight: bold; /* 粗體字 */
+  }
+  
+  .incorrect {
+    color: red; /* 錯誤顯示為紅色 */
+    font-weight: bold; /* 粗體字 */
+  }
+  
