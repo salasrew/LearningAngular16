@@ -13,6 +13,9 @@ export class QuizComponent {
   score: number = 0; // 分數
   resultMessage: string = ''; // 用於顯示正確或錯誤的消息
   isCorrect: boolean = false; // 判斷用戶答案是否正確
+  questionCount: number = 10; // 默認題目數量
+  totalQuestions: number = 0; // 總題目數量
+  currentQuestionIndex: number = 0; // 當前題目索引
 
   // 假名及其對應的羅馬拼音
   kanaMap: { [key: string]: string } = {
@@ -34,16 +37,29 @@ export class QuizComponent {
     'ひゃ': 'hya', 'ひゅ': 'hyu', 'ひょ': 'hyo',
     'みゃ': 'mya', 'みゅ': 'myu', 'みょ': 'myo',
     'りゃ': 'rya', 'りゅ': 'ryu', 'りょ': 'ryo',
-    // 添加更多的擴展音（如有需要）
   };
 
+  selectedPrefixes: string[] = []; // 用戶選擇的字首
+  includeDakuon: boolean = false; // 是否包含濁音
+  includeHanDakuon: boolean = false; // 是否包含半濁音
+  includeSeion: boolean = true; // 是否包含清音
+
   constructor() {
-    this.getRandomCharacter(); // 初始化時獲取隨機假名
+    // 初始化時獲取隨機假名
+    this.getRandomCharacter();
   }
 
   setMode(selectedMode: string) {
     this.mode = selectedMode;
-    this.getRandomCharacter(); // 切換模式時隨機獲取假名
+    this.currentQuestionIndex = 0; // 重置題目索引
+    this.score = 0; // 重置分數
+  }
+
+  startQuiz() {
+    this.totalQuestions = this.questionCount; // 設定總題目數量
+    this.currentQuestionIndex = 0; // 重置題目索引
+    this.score = 0; // 重置分數
+    this.getRandomCharacter(); // 獲取第一個題目
   }
 
   submitAnswer() {
@@ -55,14 +71,41 @@ export class QuizComponent {
       this.resultMessage = '錯誤！';
       this.isCorrect = false;
     }
+    
     this.userInput = ''; // 重置用戶輸入
-    this.getRandomCharacter(); // 獲取新的假名
+    this.currentQuestionIndex++; // 移動到下一題
+
+    // 檢查是否還有題目
+    if (this.currentQuestionIndex < this.totalQuestions) {
+      this.getRandomCharacter(); // 獲取下一個題目
+    } else {
+      this.endQuiz(); // 結束測驗
+    }
+  }
+
+  endQuiz() {
+    this.resultMessage = `測驗結束！總分: ${this.score}/${this.totalQuestions}`; // 顯示總分
+    this.isCorrect = false; // 重置正確狀態
+    this.currentCharacter = ''; // 清空當前字符
   }
 
   // 獲取隨機的假名及其正確答案
   getRandomCharacter() {
-    const characters = Object.keys(this.kanaMap);
-    this.currentCharacter = characters[Math.floor(Math.random() * characters.length)];
-    this.correctAnswer = this.kanaMap[this.currentCharacter]; // 獲取正確答案
+    const filteredCharacters = Object.keys(this.kanaMap).filter(character => {
+      const isSeion = this.includeSeion && !['が', 'ざ', 'だ', 'ば', 'ぱ', 'きゃ', 'きゅ', 'きょ', 'しゃ', 'しゅ', 'しょ', 'ちゃ', 'ちゅ', 'ちょ', 'にゃ', 'にゅ', 'にょ', 'ひゃ', 'ひゅ', 'ひょ', 'みゃ', 'みゅ', 'みょ', 'りゃ', 'りゅ', 'りょ'].includes(character);
+      const isDakuon = this.includeDakuon && ['が', 'ざ', 'だ', 'ば', 'ぱ', 'きゃ', 'きゅ', 'きょ', 'しゃ', 'しゅ', 'しょ', 'ちゃ', 'ちゅ', 'ちょ', 'にゃ', 'にゅ', 'にょ', 'ひゃ', 'ひゅ', 'ひょ', 'みゃ', 'みゅ', 'みょ', 'りゃ', 'りゅ', 'りょ'].includes(character);
+      const isHanDakuon = this.includeHanDakuon && ['ぱ', 'ぴ', 'ぷ', 'ぺ', 'ぽ'].includes(character);
+      const startsWithSelectedPrefix = this.selectedPrefixes.length === 0 || this.selectedPrefixes.some(prefix => character.startsWith(prefix));
+      
+      return (isSeion || isDakuon || isHanDakuon) && startsWithSelectedPrefix;
+    });
+
+    if (filteredCharacters.length > 0) {
+      this.currentCharacter = filteredCharacters[Math.floor(Math.random() * filteredCharacters.length)];
+      this.correctAnswer = this.kanaMap[this.currentCharacter]; // 獲取正確答案
+    } else {
+      this.currentCharacter = ''; // 若無字符可選，則設為空
+      this.correctAnswer = ''; // 對應的答案設為空
+    }
   }
 }

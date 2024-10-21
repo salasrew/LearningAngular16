@@ -1,10 +1,51 @@
-<div class="quiz-container">
-  <h1>Quiz</h1>
-  <button (click)="setMode('recognition')">辨識模式</button>
-  <button (click)="setMode('typing')">打字模式</button>
+<h1>Quiz</h1>
+<button (click)="setMode('recognition')">辨識模式</button>
+<button (click)="setMode('typing')">打字模式</button>
 
+<div>
+  <h2>選擇考題:</h2>
+  
+  <label>
+    <input type="checkbox" [(ngModel)]="includeSeion" />
+    包含清音
+  </label>
+  
+  <label>
+    <input type="checkbox" [(ngModel)]="includeDakuon" />
+    包含濁音
+  </label>
+  
+  <label>
+    <input type="checkbox" [(ngModel)]="includeHanDakuon" />
+    包含半濁音
+  </label>
+
+  <div>
+    <h3>選擇字首:</h3>
+    <label>
+      <input type="checkbox" (change)="selectedPrefixes.push('か')" [checked]="selectedPrefixes.includes('か')" />
+      か
+    </label>
+    <label>
+      <input type="checkbox" (change)="selectedPrefixes.push('さ')" [checked]="selectedPrefixes.includes('さ')" />
+      さ
+    </label>
+    <label>
+      <input type="checkbox" (change)="selectedPrefixes.push('た')" [checked]="selectedPrefixes.includes('た')" />
+      た
+    </label>
+    <!-- 更多字首選項 -->
+  </div>
+
+  <h3>考題數量:</h3>
+  <input type="number" [(ngModel)]="questionCount" min="1" max="50" />
+
+  <button (click)="startQuiz()">開始測驗</button>
+</div>
+
+<div *ngIf="currentCharacter">
+  <h2>模式: {{ mode === 'recognition' ? '平假名識別' : '其他模式' }}</h2>
   <div *ngIf="mode === 'recognition'">
-    <h2>辨識模式</h2>
     <h3>請輸入羅馬拼音:</h3>
     <h1>{{ currentCharacter }}</h1>
     <input [(ngModel)]="userInput" placeholder="輸入羅馬拼音" />
@@ -14,10 +55,5 @@
     <p [ngClass]="{'correct': isCorrect, 'incorrect': !isCorrect && resultMessage !== ''}">
       {{ resultMessage }}
     </p>
-  </div>
-
-  <div *ngIf="mode === 'typing'">
-    <h2>打字模式</h2>
-    <!-- 這裡實作假名打字測試功能 -->
   </div>
 </div>
