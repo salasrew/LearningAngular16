@@ -1,24 +1,29 @@
+/* 設置背景顏色為象牙黃 */
+
+  
 nav {
-    background-color: #f8f9fa;
-    padding: 10px;
-  }
-  
-  ul {
-    list-style-type: none;
-    padding: 0;
-  }
-  
-  li {
-    display: inline;
-    margin-right: 20px;
-  }
-  
-  a {
-    text-decoration: none;
-    color: #007bff;
-  }
-  
-  a:hover {
-    color: #0056b3;
-  }
-  
+background-color: #f8f9fa;
+padding: 10px;
+display: flex;
+justify-content: flex-end; /* 將內容靠右對齊 */
+}
+
+ul {
+list-style-type: none;
+padding: 0;
+margin: 0;
+display: flex; /* 使用 flexbox 讓項目水平排列 */
+}
+
+li {
+margin-left: 20px; /* 調整間距 */
+}
+
+a {
+text-decoration: none;
+color: #007bff;
+}
+
+a:hover {
+color: #0056b3;
+}
