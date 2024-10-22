@@ -1,96 +1,80 @@
-/* 整體背景設定 */
-body, html {
-    background-color: #1e1e1e; /* 深色背景，統一頁面風格 */
-    margin: 0;
-    padding: 0;
-    height: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-family: Arial, sans-serif;
+.katakana-container {
+    /* margin: 20px; */
+    max-width: 600px; /* 設置最大寬度 */
+    margin: 0 auto; /* 讓整個容器居中 */
+    padding: 10px; /* 調整內邊距 */
+    background-color: #f7f7f7; /* 淡背景色 */
+    border-radius: 10px; /* 圓角 */
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1); /* 添加陰影 */
   }
   
-.katakana-container 
-{
-display: flex;
-flex-direction: column;
-align-items: center;
-margin-top: 20px;
-background-color: #2b2b2b; /* 表格背景色稍淺，與主背景有區別 */
-padding: 20px;
-border-radius: 10px; /* 增加圓角使表格區塊更有層次感 */
-box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); /* 增加陰影效果 */
-}
+  .seion-container {
+    background-color: #f9f9f9;
+    padding: 10px;
+    border: 1px solid #ccc;
+    margin-bottom: 10px;
+    border-radius: 10px;
 
-/* 標題 */
-h1 
-{
-color: #ffcc00; /* 讓標題顯眼 */
-margin-bottom: 20px;
-}
+  }
+  
+  .dakuon-container {
+    background-color: #e6f7ff;
+    padding: 10px;
+    border: 1px solid #00bfff;
+    margin-bottom: 10px;
+    border-radius: 10px;
 
-/* 表格設定 */
-table 
-{
-    border-collapse: collapse;
-    font-size: 1.2rem;
-    width: 100%; /* 表格寬度佔滿容器 */
-    background-color: #333333; /* 表格深色背景 */
-    margin-bottom: 40px;
-}
+  }
+  
+  .handadakuon-container {
+    background-color: #fff5e6;
+    padding: 10px;
+    border: 1px solid #ffcc00;
+    margin-bottom: 10px;
+    border-radius: 10px;
 
-td 
-{
-border: 1px solid #666666; /* 灰色邊框 */
-padding: 10px;
-text-align: center;
-color: #ffffff; /* 白色字體 */
-}
+  }
+  
+  .youon-container {
+    background-color: #e6ffe6;
+    padding: 10px;
+    border: 1px solid #66cc66;
+    margin-bottom: 10px;
+    border-radius: 10px;
+  }
+  
+  .chouon-container {
+    background-color: #fff0f0;
+    padding: 10px;
+    border: 1px solid #ff6666;
+    margin-bottom: 10px;
+    border-radius: 10px;
+  }
+  
+  .sokuon-container {
+    background-color: #e0e0e0;
+    padding: 10px;
+    border: 1px solid #999;
+    margin-bottom: 10px;
+    border-radius: 10px;
 
-/* 每列隔色，增強可讀性 */
-td:nth-child(odd) 
-{
-background-color: #444444;
-}
+  }
+  
 
-td:nth-child(even) {
-background-color: #555555;
-}
-
-td:hover
-{
-    background-color: #f0f0f0;
-    cursor: pointer;
-}
-
-
-/* 增加表格邊緣圓角 */
+/* 表格樣式調整 */
 table {
-border-radius: 10px;
-overflow: hidden; /* 防止表格圓角被內容擠壓 */
+margin: 0 auto; /* 表格居中 */
+border-collapse: collapse; /* 去除表格間距 */
+width: auto; /* 表格寬度自適應 */
 }
 
-/* 調整最後一行的寬度 */
-table tr:last-child td:first-child {
-width: 50px;
+td {
+text-align: center; /* 文字置中 */
+padding: 8px 12px; /* 調整單元格間距 */
 }
 
-
-
-
-/* ------------------------- */
-/* 對段落和標題文字顏色進行設置 */
-p, h2, li {
-    color: #f0f0f0; /* 設置為淺色，根據需要可以更改 */
-}
-
-/* 可以根據需求調整其他樣式 
-.hiragana-container {
-    background-color: #f5f5dc; 
-    color: #333; 
-}
-*/
-
-p, h2, li {
-    color: #f0f0f0; /* 淺色文字 */
+h1 {
+text-align: center; /* 標題居中 */
+font-family: Arial, sans-serif; /* 調整字體 */
+color: #333; /* 調整標題顏色 */
 }
