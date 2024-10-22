@@ -8,7 +8,7 @@ import { Component } from '@angular/core';
 export class QuizComponent {
   mode: string = 'recognition'; // 默認為辨識模式
   userInput: string = ''; // 用戶輸入的羅馬拼音
-  currentCharacter: string = ''; // 隨機出現的平假名
+  currentCharacter: string = ''; // 隨機出現的平假名或片假名
   correctAnswer: string = ''; // 正確答案
   score: number = 0; // 分數
   resultMessage: string = ''; // 用於顯示正確或錯誤的消息
@@ -46,11 +46,26 @@ export class QuizComponent {
   includeYoon: boolean = false; // 是否包含拗音 (contracted sounds)
 
   quizType: string = 'hiragana'; // 默認選擇的測驗類型
-  prefixes: string[] = ['あ', 'か', 'さ', 'た', 'な', 'は', 'ま', 'や', 'ら', 'わ']; // 可選字首
+  prefixes: string[] = []; // 可選字首
 
   constructor() {
-    // 初始化時獲取隨機假名
-    this.getRandomCharacter();
+    this.initializePrefixes(); // 初始化時獲取字首
+    this.getRandomCharacter(); // 獲取隨機假名
+  }
+
+  // 根據 quizType 初始化字首
+  initializePrefixes() {
+    if (this.quizType === 'hiragana') {
+      this.prefixes = ['あ', 'か', 'さ', 'た', 'な', 'は', 'ま', 'や', 'ら', 'わ']; // Hiragana 可選字首  'ん' 除外
+    } else if (this.quizType === 'katakana') {
+      this.prefixes = ['ア', 'カ', 'サ', 'タ', 'ナ', 'ハ', 'マ', 'ヤ', 'ラ', 'ワ' ]; // Katakana 可選字首 'ン' 除外
+    }
+  }
+
+  setQuizType(selectedType: string) {
+    this.quizType = selectedType; // 設定測驗類型
+    this.initializePrefixes(); // 更新字首
+    this.startQuiz(); // 重新開始測驗
   }
 
   setMode(selectedMode: string) {
@@ -116,10 +131,11 @@ export class QuizComponent {
 
   // 切換字首選擇
   togglePrefix(prefix: string) {
-    if (this.selectedPrefixes.includes(prefix)) {
-      this.selectedPrefixes = this.selectedPrefixes.filter(p => p !== prefix); // 移除已選前綴
+    const index = this.selectedPrefixes.indexOf(prefix);
+    if (index > -1) {
+      this.selectedPrefixes.splice(index, 1); // 如果已選擇，則移除
     } else {
-      this.selectedPrefixes.push(prefix); // 添加選擇的前綴
+      this.selectedPrefixes.push(prefix); // 如果未選擇，則添加
     }
   }
 }

@@ -5,17 +5,18 @@
   <button (click)="setMode('typing')">打字模式</button>
 
   <div>
-    <h2>選擇考題:</h2>
-
-    <!-- 平假名/片假名選擇 -->
-    <label>
-      <input type="radio" [(ngModel)]="quizType" value="hiragana" />
-      平假名
-    </label>
-    <label>
-      <input type="radio" [(ngModel)]="quizType" value="katakana" />
-      片假名
-    </label>
+<!-- 選擇測驗類型 -->
+<div>
+    <h3>選擇測驗類型:</h3>
+      <label>
+        <input type="radio" name="quizType" (change)="setQuizType('hiragana')" checked />
+        平假名
+      </label>
+      <label>
+        <input type="radio" name="quizType" (change)="setQuizType('katakana')" />
+        片假名
+      </label>
+    </div>
 
     <!-- 包含的音類選項 -->
     <label>
