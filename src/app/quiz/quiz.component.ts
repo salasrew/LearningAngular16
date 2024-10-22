@@ -43,6 +43,10 @@ export class QuizComponent {
   includeDakuon: boolean = false; // 是否包含濁音
   includeHanDakuon: boolean = false; // 是否包含半濁音
   includeSeion: boolean = true; // 是否包含清音
+  includeYoon: boolean = false; // 是否包含拗音 (contracted sounds)
+
+  quizType: string = 'hiragana'; // 默認選擇的測驗類型
+  prefixes: string[] = ['あ', 'か', 'さ', 'た', 'な', 'は', 'ま', 'や', 'ら', 'わ']; // 可選字首
 
   constructor() {
     // 初始化時獲取隨機假名
@@ -95,9 +99,10 @@ export class QuizComponent {
       const isSeion = this.includeSeion && !['が', 'ざ', 'だ', 'ば', 'ぱ', 'きゃ', 'きゅ', 'きょ', 'しゃ', 'しゅ', 'しょ', 'ちゃ', 'ちゅ', 'ちょ', 'にゃ', 'にゅ', 'にょ', 'ひゃ', 'ひゅ', 'ひょ', 'みゃ', 'みゅ', 'みょ', 'りゃ', 'りゅ', 'りょ'].includes(character);
       const isDakuon = this.includeDakuon && ['が', 'ざ', 'だ', 'ば', 'ぱ', 'きゃ', 'きゅ', 'きょ', 'しゃ', 'しゅ', 'しょ', 'ちゃ', 'ちゅ', 'ちょ', 'にゃ', 'にゅ', 'にょ', 'ひゃ', 'ひゅ', 'ひょ', 'みゃ', 'みゅ', 'みょ', 'りゃ', 'りゅ', 'りょ'].includes(character);
       const isHanDakuon = this.includeHanDakuon && ['ぱ', 'ぴ', 'ぷ', 'ぺ', 'ぽ'].includes(character);
+      const isYoon = this.includeYoon && ['きゃ', 'きゅ', 'きょ', 'しゃ', 'しゅ', 'しょ', 'ちゃ', 'ちゅ', 'ちょ', 'にゃ', 'にゅ', 'にょ', 'ひゃ', 'ひゅ', 'ひょ', 'みゃ', 'みゅ', 'みょ', 'りゃ', 'りゅ', 'りょ'].includes(character);
       const startsWithSelectedPrefix = this.selectedPrefixes.length === 0 || this.selectedPrefixes.some(prefix => character.startsWith(prefix));
       
-      return (isSeion || isDakuon || isHanDakuon) && startsWithSelectedPrefix;
+      return (isSeion || isDakuon || isHanDakuon || isYoon) && startsWithSelectedPrefix;
     });
 
     if (filteredCharacters.length > 0) {
@@ -106,6 +111,15 @@ export class QuizComponent {
     } else {
       this.currentCharacter = ''; // 若無字符可選，則設為空
       this.correctAnswer = ''; // 對應的答案設為空
+    }
+  }
+
+  // 切換字首選擇
+  togglePrefix(prefix: string) {
+    if (this.selectedPrefixes.includes(prefix)) {
+      this.selectedPrefixes = this.selectedPrefixes.filter(p => p !== prefix); // 移除已選前綴
+    } else {
+      this.selectedPrefixes.push(prefix); // 添加選擇的前綴
     }
   }
 }

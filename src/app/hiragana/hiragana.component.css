@@ -1,4 +1,5 @@
-.hiragana-container {
+.hiragana-container 
+{
     /* margin: 20px; */
     max-width: 600px; /* 設置最大寬度 */
     margin: 0 auto; /* 讓整個容器居中 */
@@ -6,76 +7,75 @@
     background-color: #f7f7f7; /* 淡背景色 */
     border-radius: 10px; /* 圓角 */
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1); /* 添加陰影 */
-  }
-  
-  .seion-container {
-    background-color: #f9f9f9;
-    padding: 10px;
-    border: 1px solid #ccc;
-    margin-bottom: 10px;
-    border-radius: 10px;
+}
 
-  }
-  
-  .dakuon-container {
-    background-color: #e6f7ff;
-    padding: 10px;
-    border: 1px solid #00bfff;
-    margin-bottom: 10px;
-    border-radius: 10px;
+.seion-container {
+  background-color: #f9f9f9;
+  padding: 10px;
+  border: 1px solid #ccc;
+  margin-bottom: 10px;
+  border-radius: 10px;
 
-  }
-  
-  .handadakuon-container {
-    background-color: #fff5e6;
-    padding: 10px;
-    border: 1px solid #ffcc00;
-    margin-bottom: 10px;
-    border-radius: 10px;
+}
 
-  }
-  
-  .youon-container {
-    background-color: #e6ffe6;
-    padding: 10px;
-    border: 1px solid #66cc66;
-    margin-bottom: 10px;
-    border-radius: 10px;
-  }
-  
-  .chouon-container {
-    background-color: #fff0f0;
-    padding: 10px;
-    border: 1px solid #ff6666;
-    margin-bottom: 10px;
-    border-radius: 10px;
-  }
-  
-  .sokuon-container {
-    background-color: #e0e0e0;
-    padding: 10px;
-    border: 1px solid #999;
-    margin-bottom: 10px;
-    border-radius: 10px;
+.dakuon-container {
+  background-color: #e6f7ff;
+  padding: 10px;
+  border: 1px solid #00bfff;
+  margin-bottom: 10px;
+  border-radius: 10px;
 
-  }
-  
+}
 
-  /* 表格樣式調整 */
+.handadakuon-container {
+  background-color: #fff5e6;
+  padding: 10px;
+  border: 1px solid #ffcc00;
+  margin-bottom: 10px;
+  border-radius: 10px;
+
+}
+
+.youon-container {
+  background-color: #e6ffe6;
+  padding: 10px;
+  border: 1px solid #66cc66;
+  margin-bottom: 10px;
+  border-radius: 10px;
+}
+
+.chouon-container {
+  background-color: #fff0f0;
+  padding: 10px;
+  border: 1px solid #ff6666;
+  margin-bottom: 10px;
+  border-radius: 10px;
+}
+
+.sokuon-container {
+  background-color: #e0e0e0;
+  padding: 10px;
+  border: 1px solid #999;
+  margin-bottom: 10px;
+  border-radius: 10px;
+
+}
+
+
+/* 表格樣式調整 */
 table {
-  margin: 0 auto; /* 表格居中 */
-  border-collapse: collapse; /* 去除表格間距 */
-  width: auto; /* 表格寬度自適應 */
-  }
-  
-  td {
-  text-align: center; /* 文字置中 */
-  padding: 8px 12px; /* 調整單元格間距 */
-  }
-  
-  h1 {
-  text-align: center; /* 標題居中 */
-  font-family: Arial, sans-serif; /* 調整字體 */
-  color: #333; /* 調整標題顏色 */
-  }
-  
+margin: 0 auto; /* 表格居中 */
+border-collapse: collapse; /* 去除表格間距 */
+width: auto; /* 表格寬度自適應 */
+}
+
+td {
+text-align: center; /* 文字置中 */
+padding: 8px 12px; /* 調整單元格間距 */
+}
+
+h1 {
+text-align: center; /* 標題居中 */
+font-family: Arial, sans-serif; /* 調整字體 */
+color: #333; /* 調整標題顏色 */
+}
